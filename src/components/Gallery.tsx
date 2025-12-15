@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
 import carousel1 from "@/assets/carousel-1.png";
 import carousel2 from "@/assets/carousel-2.png";
 import carousel3 from "@/assets/carousel-3.png";
@@ -19,6 +20,7 @@ const images = [
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { t } = useLanguage();
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -34,11 +36,11 @@ const Gallery = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            <span className="text-foreground">Explora</span>{" "}
-            <span className="text-primary text-glow-sm">el Servidor</span>
+            <span className="text-foreground">{t.gallery.title1}</span>{" "}
+            <span className="text-primary text-glow-sm">{t.gallery.title2}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Descubre nuestros mapas, arenas y zonas diseñadas para ofrecerte la mejor experiencia de PVP
+            {t.gallery.subtitle}
           </p>
         </div>
 

@@ -18,9 +18,6 @@ const Footer = () => {
                 <span className="text-primary">DRACO</span>
                 <span className="text-foreground">LEGEND</span>
               </h3>
-              <p className="text-muted-foreground text-sm">
-                Servidor PVP Minecraft 1.16+
-              </p>
             </div>
           </div>
 

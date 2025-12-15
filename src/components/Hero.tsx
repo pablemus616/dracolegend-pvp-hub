@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Copy, Check, ShoppingCart } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 import logo from "@/assets/logo.png";
 import discordIcon from "@/assets/discord.png";
 import carousel1 from "@/assets/carousel-1.png";
 
 const Hero = () => {
   const [copied, setCopied] = useState(false);
+  const { t } = useLanguage();
   const serverIP = "dracolegend.net";
 
   const copyIP = async () => {
@@ -61,15 +63,15 @@ const Hero = () => {
 
         {/* Subtitle */}
         <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          El mejor servidor PVP para Minecraft 1.16+
+          {t.hero.subtitle}
           <br />
-          <span className="text-primary font-semibold">¡Únete a la leyenda!</span>
+          <span className="text-primary font-semibold">{t.hero.joinLegend}</span>
         </p>
 
         {/* Server IP */}
         <div className="flex flex-col items-center gap-4 mb-10 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <p className="text-muted-foreground text-sm uppercase tracking-widest font-display">
-            IP del Servidor
+            {t.hero.serverIP}
           </p>
           <button
             onClick={copyIP}
@@ -87,7 +89,7 @@ const Hero = () => {
             </div>
           </button>
           <span className={`text-sm transition-all duration-300 ${copied ? 'text-primary' : 'text-muted-foreground'}`}>
-            {copied ? '¡IP copiada!' : 'Haz clic para copiar'}
+            {copied ? t.hero.copied : t.hero.clickToCopy}
           </span>
         </div>
 
@@ -100,7 +102,7 @@ const Hero = () => {
             onClick={() => window.open('https://discord.com/invite/pKpMSd4yka', '_blank')}
           >
             <img src={discordIcon} alt="Discord" className="w-6 h-6" />
-            Únete al Discord
+            {t.hero.discord}
           </Button>
           <Button
             variant="hero"
@@ -109,11 +111,10 @@ const Hero = () => {
             onClick={() => window.open('https://store.dracolegend.net', '_blank')}
           >
             <ShoppingCart className="w-5 h-5" />
-            Tienda
+            {t.hero.store}
           </Button>
         </div>
       </div>
-
     </section>
   );
 };

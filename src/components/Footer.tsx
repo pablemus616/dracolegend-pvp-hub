@@ -1,8 +1,11 @@
+import { useLanguage } from "@/context/LanguageContext";
 import logo from "@/assets/logo.png";
 import discordIcon from "@/assets/discord.png";
 import { ShoppingCart } from "lucide-react";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="py-12 border-t border-border bg-card/30">
       <div className="container mx-auto px-4">
@@ -39,14 +42,14 @@ const Footer = () => {
               className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
-              <span className="text-sm">Tienda</span>
+              <span className="text-sm">{t.hero.store}</span>
             </a>
           </div>
 
           {/* IP */}
           <div className="text-center md:text-right">
             <p className="text-muted-foreground text-xs uppercase tracking-wider mb-1">
-              IP del Servidor
+              {t.footer.serverIP}
             </p>
             <p className="font-mono text-primary font-bold">dracolegend.net</p>
           </div>
@@ -55,7 +58,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} DracoLegend. Todos los derechos reservados.
+            © {new Date().getFullYear()} DracoLegend. {t.footer.rights}
           </p>
         </div>
       </div>

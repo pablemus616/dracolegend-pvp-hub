@@ -1,45 +1,28 @@
 import { Swords, Target, Cloud, Coins, TreePine } from "lucide-react";
-
-const gamemodes = [
-  {
-    icon: Swords,
-    title: "FFA",
-    description: "Free For All - Combate sin reglas, todos contra todos"
-  },
-  {
-    icon: Target,
-    title: "Practice PVP",
-    description: "Mejora tus habilidades con modos de práctica"
-  },
-  {
-    icon: Cloud,
-    title: "Skywars",
-    description: "Islas flotantes, botín aleatorio, un solo ganador"
-  },
-  {
-    icon: Coins,
-    title: "Pillars of Fortune",
-    description: "Conquista los pilares y acumula riquezas"
-  },
-  {
-    icon: TreePine,
-    title: "Survival",
-    description: "Sobrevive, construye y domina el mundo"
-  }
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const Gamemodes = () => {
+  const { t } = useLanguage();
+
+  const gamemodes = [
+    { icon: Swords, ...t.gamemodes.ffa },
+    { icon: Target, ...t.gamemodes.practice },
+    { icon: Cloud, ...t.gamemodes.skywars },
+    { icon: Coins, ...t.gamemodes.pillars },
+    { icon: TreePine, ...t.gamemodes.survival },
+  ];
+
   return (
     <section className="py-20 relative">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            <span className="text-foreground">Nuestras</span>{" "}
-            <span className="text-primary text-glow-sm">Modalidades</span>
+            <span className="text-foreground">{t.gamemodes.title1}</span>{" "}
+            <span className="text-primary text-glow-sm">{t.gamemodes.title2}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explora todas las formas de jugar en DracoLegend
+            {t.gamemodes.subtitle}
           </p>
         </div>
 

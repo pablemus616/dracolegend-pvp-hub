@@ -9,12 +9,12 @@ import map2 from "@/assets/map-2.png";
 import map3 from "@/assets/map-3.png";
 
 const images = [
-  { src: carousel1, title: "Spawn Principal" },
-  { src: carousel2, title: "Arena de Combate" },
-  { src: carousel3, title: "Zona de Descanso" },
-  { src: map1, title: "Mapa de Batalla 1" },
-  { src: map2, title: "Mapa de Batalla 2" },
-  { src: map3, title: "Mapa de Batalla 3" },
+  carousel1,
+  carousel2,
+  carousel3,
+  map1,
+  map2,
+  map3,
 ];
 
 const Gallery = () => {
@@ -47,17 +47,10 @@ const Gallery = () => {
           {/* Main Image */}
           <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-border box-glow">
             <img
-              src={images[currentIndex].src}
-              alt={images[currentIndex].title}
+              src={images[currentIndex]}
+              alt="Screenshot del servidor"
               className="w-full h-full object-cover transition-all duration-500"
             />
-            {/* Overlay with title */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
-                {images[currentIndex].title}
-              </h3>
-            </div>
           </div>
 
           {/* Navigation Buttons */}
@@ -107,8 +100,8 @@ const Gallery = () => {
               }`}
             >
               <img
-                src={image.src}
-                alt={image.title}
+                src={image}
+                alt="Screenshot del servidor"
                 className="w-full h-full object-cover"
               />
             </button>
